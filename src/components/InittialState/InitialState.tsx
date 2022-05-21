@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react';
-import searchLogo from '../../svg/search.svg';
+import searchLogo from '../../assets/svg/search.svg';
 import './initialState.css'
 
 interface InitialProps {}

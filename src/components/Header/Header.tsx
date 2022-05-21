@@ -1,16 +1,16 @@
 import { FunctionComponent } from 'react';
-import logo from '../../svg/github.svg';
+import logo from '../../assets/svg/github.svg';
 import Input from '../Input/Input';
 
 interface HeaderProps {
-  onSubmitHead: (value: string) => void;
+  getValue: (value: string) => void
 }
 
-const Header: FunctionComponent<HeaderProps> = ({ onSubmitHead }) => {
+const Header: FunctionComponent<HeaderProps> = ({ getValue }) => {
   return (
     <header className="App-header">
       <img src={logo} alt="github logo" />
-      <Input onSubmitInp = {onSubmitHead} />
+      <Input getValue = {getValue} />
     </header>
   );
 };
