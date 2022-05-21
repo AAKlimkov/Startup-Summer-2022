@@ -6,6 +6,7 @@ export interface RepoProps {
   updated_at: string;
   html_url: string;
   description: string
+  message: string;
 }
 
 const Repo: FunctionComponent<RepoProps> = (props) => {

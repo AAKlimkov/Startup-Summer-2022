@@ -6,6 +6,12 @@ import Header from './components/Header/Header';
 import InitialState from './components/InittialState/InitialState';
 import Pages from './components/pages/Pages';
 import { RepoProps } from './components/pages/repo/Repo';
+import { IUser } from './components/pages/user/user';
+
+interface IError {
+  message: string;
+  documentation_url: string;
+}
 
 interface AppProps {}
 
@@ -14,13 +20,16 @@ const App: FunctionComponent<AppProps> = () => {
   const [data, setData] = useState('');
   const [value, setValue] = useState('');
 
-  const onSubmitHandle = async (value: string) => {
+  const onGetRepos = async (value: string) => {
     const url = `https://api.github.com/users/${value}/repos`;
     const res = await fetch(url);
-    const data: RepoProps[] = await res.json();
-    // console.log(data);
-    // res.catch()
-
+    let data: RepoProps[] = await res.json();
+    return data;
+  };
+  const onGetUser = async (value: string) => {
+    const url = `https://api.github.com/users/${value}`;
+    const res = await fetch(url);
+    let data: IUser = await res.json();
     return data;
   };
 
@@ -39,7 +48,7 @@ const App: FunctionComponent<AppProps> = () => {
       <Header getValue={getValue} />
 
       {value ? (
-        <Pages onSubmitHand={onSubmitHandle} value={value} />
+        <Pages onSubmitHand={onGetRepos} onGetUser = {onGetUser} value={value} />
       ) : (
         <InitialState />
       )}
