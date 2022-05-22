@@ -55,18 +55,17 @@ const Pages: FunctionComponent<PagesProps> = ({
       {isLoading ? (
         <div className="loader"></div>
       ) : userData.name ? (
-        <User {...userData} />
+        <>
+          <User {...userData} />
+          <Repos
+            userData={userData}
+            repos={repos}
+            getPageNumber={getPageNumber}
+          />
+        </>
       ) : (
         <InitialState span="User not found" logo={noUser} />
       )}
-
-      {userData.name ? (
-        <Repos
-          userData={userData}
-          repos={repos}
-          getPageNumber={getPageNumber}
-        />
-      ) : null}
     </div>
   );
 };
