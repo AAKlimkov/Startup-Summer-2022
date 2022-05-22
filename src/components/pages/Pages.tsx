@@ -54,7 +54,7 @@ const Pages: FunctionComponent<PagesProps> = ({
     <div className="pages">
       {isLoading ? (
         <div className="loader"></div>
-      ) : userData.name ? (
+      ) : userData.login ? (
         <>
           <User {...userData} />
           <Repos
