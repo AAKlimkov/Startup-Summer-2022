@@ -30,26 +30,32 @@ const Repos: FunctionComponent<ReposProps> = ({
       {repos.map((repo: RepoProps) => (
         <Repo {...repo} />
       ))}
-      <ReactPaginate
-        previousLabel="<"
-        nextLabel=">"
-        pageClassName="page-item"
-        pageLinkClassName="page-link"
-        previousClassName="page-item"
-        previousLinkClassName="page-link"
-        nextClassName="page-item"
-        nextLinkClassName="page-link"
-        breakLabel="..."
-        breakClassName="page-item"
-        breakLinkClassName="page-link"
-        pageCount={Math.ceil(+userData.public_repos / 10)}
-        marginPagesDisplayed={2}
-        pageRangeDisplayed={5}
-        onPageChange={handlePageChange}
-        containerClassName="pagination"
-        activeClassName="active"
-        forcePage={pageOffset}
-      />
+      <div className='paginations-wrap'>
+        <span className='page-info'>
+          {pageOffset * 4 + 1} - {(pageOffset + 1) * 4} of {userData.public_repos} items
+          
+        </span>
+        <ReactPaginate
+          previousLabel="<"
+          nextLabel=">"
+          pageClassName="page-item"
+          pageLinkClassName="page-link"
+          previousClassName="page-item"
+          previousLinkClassName="page-link"
+          nextClassName="page-item"
+          nextLinkClassName="page-link"
+          breakLabel="..."
+          breakClassName="page-item"
+          breakLinkClassName="page-link"
+          pageCount={Math.ceil(+userData.public_repos / 4)}
+          marginPagesDisplayed={1}
+          pageRangeDisplayed={3}
+          onPageChange={handlePageChange}
+          containerClassName="pagination"
+          activeClassName="active"
+          forcePage={pageOffset}
+        />
+      </div>
     </div>
   ) : (
     <InitialState span="Repository list is empty" logo={noRepos} />

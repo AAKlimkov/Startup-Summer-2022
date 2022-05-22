@@ -23,7 +23,7 @@ const App: FunctionComponent<AppProps> = () => {
   const [pageNumber, setPageNumber] = useState('1');
 
   const onGetRepos = async (value: string, pageNum: string) => {
-    const url = `https://api.github.com/users/${value}/repos?per_page=10&page=${pageNum}`;
+    const url = `https://api.github.com/users/${value}/repos?per_page=4&page=${pageNum}`;
     const res = await fetch(url);
     let data: RepoProps[] = await res.json();
     return data;

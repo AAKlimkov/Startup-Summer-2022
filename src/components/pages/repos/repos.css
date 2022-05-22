@@ -7,33 +7,52 @@
   margin-top: 30px;
 }
 .pagination {
-  width: 95%;
-  height: 40px;
+  padding-inline-start: 0;
+  height: 30px;
   list-style: none;
   display: flex;
   justify-content: right;
+  margin-top: 24px;
 }
 
 .pagination a {
-  padding: 10px;
-  margin: 8px;
+  padding: 5px;
+  margin-left: 16px;
   border-radius: 5px;
-  border: 1px solid #2b2eff;
-  color: #2b2eff;
+  color: #808080;
   cursor: pointer;
 }
 
 .pagination a:hover {
   color: white;
-  background-color: #2b2eff;
+  background: #0064eb;
+  border-radius: 3px;
 }
 
-.paginationActive a {
+.active a {
   color: white;
-  background-color: #2b2eff;
+  background: #0064eb;
+  border-radius: 3px;
 }
 
 .paginationDisabled a {
   color: grey;
   background-color: grey;
+}
+
+
+.page-info{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  color: #808080;
+}
+.paginations-wrap{
+  
+  width: 95%;
+  display: flex;
+  justify-content: right;
+  align-items: center;
 }
