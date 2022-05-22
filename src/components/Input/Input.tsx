@@ -6,9 +6,6 @@ interface InputProps {
 
 const Input: FunctionComponent<InputProps> = ({ getValue }) => {
   const [value, setValue] = useState('');
-  // useEffect(() => {
-  //   getValue(value);
-  // }, [getValue, value]);
 
   return (
     <form

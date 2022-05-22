@@ -1,4 +1,3 @@
-// import { legacy_createStore as createStore} from 'redux'
 import { combineReducers, createStore, applyMiddleware } from 'redux';
 import reposReduser from './reposReduser';
 import { composeWithDevTools } from '@redux-devtools/extension';
@@ -8,10 +7,3 @@ const rootReducer = combineReducers({
 });
 
 export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
-
-
-// export const store = configureStore({
-//     reducer: rootReducer,
-//     devTools: composeWithDevTools(applyMiddleware(thunk)),
-//   });
-  

@@ -1,4 +1,5 @@
 import { FunctionComponent, useEffect, useState } from 'react';
+import ReactPaginate from 'react-paginate'
 import { useDispatch, useSelector } from 'react-redux';
 import { getRepos } from '../../actions/repos';
 import { IRepItem } from '../../reducers/reposReduser';
@@ -11,15 +12,6 @@ interface PagesProps {
   onGetUser: (value: string) => Promise<IUser>;
   value: string;
 }
-
-// const onSubmitHandle = async (value: string = 'AAKlimkov') => {
-//   const url = `https://api.github.com/users/${value}/repos`;
-//   const res = await fetch(url);
-//   const data: RepoProps[] = await res.json();
-//   console.log(data);
-
-//   return data;
-// };
 
 const Pages: FunctionComponent<PagesProps> = ({
   onSubmitHand,
@@ -36,9 +28,7 @@ const Pages: FunctionComponent<PagesProps> = ({
     avatar_url: 'string'
   });
   const dispatch = useDispatch();
-  //   const repos = useSelector<{ repos: IRepItem }, any[]>(
-  //     (state) => state.repos.items
-  //   );
+
 
   useEffect(() => {
     async function getData() {
