@@ -20,9 +20,10 @@ const App: FunctionComponent<AppProps> = () => {
   // const dispatch = useDispatch();
   // const [data, setData] = useState('');
   const [value, setValue] = useState('');
+  const [pageNumber, setPageNumber] = useState('1');
 
-  const onGetRepos = async (value: string) => {
-    const url = `https://api.github.com/users/${value}/repos?per_page=10`;
+  const onGetRepos = async (value: string, pageNum: string) => {
+    const url = `https://api.github.com/users/${value}/repos?per_page=10&page=${pageNum}`;
     const res = await fetch(url);
     let data: RepoProps[] = await res.json();
     return data;
@@ -34,8 +35,14 @@ const App: FunctionComponent<AppProps> = () => {
     return data;
   };
 
+
+
   const getValue = (value: string) => {
     setValue(value);
+  };
+
+  const getPageNumber = (pageNumber: string) => {
+    setPageNumber(pageNumber);
   };
   // console.log(value);
 
@@ -48,7 +55,13 @@ const App: FunctionComponent<AppProps> = () => {
       <Header getValue={getValue} />
 
       {value ? (
-        <Pages onSubmitHand={onGetRepos} onGetUser={onGetUser} value={value} />
+        <Pages
+          onSubmitHand={onGetRepos}
+          onGetUser={onGetUser}
+          value={value}
+          pageNum={pageNumber}
+          getPageNumber={getPageNumber}
+        />
       ) : (
         <InitialState
           span="Start with searching a GitHub user"

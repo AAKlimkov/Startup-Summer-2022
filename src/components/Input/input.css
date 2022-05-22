@@ -5,3 +5,9 @@
     font-size: 14px;
     margin-left: 22px;
 }
+
+@media (max-width: 768px)  {
+    .input{
+        width: 200px; 
+    }
+}

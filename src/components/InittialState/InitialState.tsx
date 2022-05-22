@@ -8,8 +8,6 @@ interface InitialProps {
 }
 
 const Initial: FunctionComponent<InitialProps> = (props) => {
-  console.log(props.logo);
-  
   return (
     <div className="initial">
       <img src={props.logo} alt="searchLogo" />

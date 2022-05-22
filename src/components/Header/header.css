@@ -7,4 +7,8 @@
     color: white;
   }
   
-  
+  @media (max-width: 768px)  {
+    .App-header {
+      padding-left: 20px;
+    }
+  }

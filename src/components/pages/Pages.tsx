@@ -3,25 +3,29 @@ import { FunctionComponent, useEffect, useState } from 'react';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { getRepos } from '../../actions/repos';
 // import { IRepItem } from '../../reducers/reposReduser';
-import Repo, { RepoProps } from './repo/Repo';
+import { RepoProps } from './repo/Repo';
 import User, { IUser } from './user/user';
 import './pages.css';
 import InitialState from '../InittialState/InitialState';
-import noRepos from '../../assets/svg/noRepos.svg';
 import noUser from '../../assets/svg/noUser.svg';
+import Repos from './repos/Repos';
 
 // import { IError } from '../../App';
 
 interface PagesProps {
-  onSubmitHand: (value: string) => Promise<RepoProps[]>;
+  onSubmitHand: (value: string, pageNumber: string) => Promise<RepoProps[]>;
   onGetUser: (value: string) => Promise<IUser>;
   value: string;
+  pageNum: string;
+  getPageNumber: (value: string) => void;
 }
 
 const Pages: FunctionComponent<PagesProps> = ({
   onSubmitHand,
   onGetUser,
   value,
+  pageNum,
+  getPageNumber,
 }) => {
   const [repos, setRepos] = useState<RepoProps[]>([]);
   const [userData, setuserData] = useState<IUser>({
@@ -33,19 +37,20 @@ const Pages: FunctionComponent<PagesProps> = ({
     avatar_url: '',
     public_repos: '',
   });
+
   // const dispatch = useDispatch();
 
   useEffect(() => {
     async function getData() {
       if (value) {
-        const repos = await onSubmitHand(value);
+        const repos = await onSubmitHand(value, pageNum);
         const userData = await onGetUser(value);
         setRepos(repos);
         setuserData(userData);
       }
     }
     getData();
-  }, [value]);
+  }, [value, pageNum]);
 
   return (
     <div className="pages">
@@ -56,16 +61,11 @@ const Pages: FunctionComponent<PagesProps> = ({
       )}
 
       {userData.name ? (
-        userData.public_repos ? (
-          <div className="repos">
-            Repositories ({userData.public_repos})
-            {repos.map((repo: RepoProps) => (
-              <Repo {...repo} />
-            ))}
-          </div>
-        ) : (
-          <InitialState span="Repository list is empty" logo={noRepos} />
-        )
+        <Repos
+          userData={userData}
+          repos={repos}
+          getPageNumber={getPageNumber}
+        />
       ) : null}
     </div>
   );

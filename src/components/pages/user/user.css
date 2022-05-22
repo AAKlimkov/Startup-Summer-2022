@@ -6,9 +6,9 @@
 }
 
 .user {
-  padding-left: 40px;
+  width: 25vw;
   padding-top: 40px;
-  flex-grow: 4;
+  justify-content: center;
 }
 .name {
   font-family: 'Inter';
@@ -29,8 +29,21 @@
   text-align: center;
 }
 
-.following, .followers {
-    height: 120px;
-    vertical-align: middle;
-    text-align: center;
+.following,
+.followers {
+  vertical-align: middle;
+  text-align: center;
+}
+
+@media (max-width: 1024px)  {
+  .user {
+    width: 30vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .user {
+    width: 300px;
+    margin: 0 auto;
+  }
 }
