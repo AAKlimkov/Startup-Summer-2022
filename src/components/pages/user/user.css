@@ -31,11 +31,11 @@
 
 .following,
 .followers {
-  vertical-align: middle;
-  text-align: center;
+  display: flex;
+  align-content: center;
 }
 
-@media (max-width: 1024px)  {
+@media (max-width: 1024px) {
   .user {
     width: 30vw;
   }
@@ -43,7 +43,17 @@
 
 @media (max-width: 768px) {
   .user {
+    padding-top: 10px;
     width: 300px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
     margin: 0 auto;
   }
 }

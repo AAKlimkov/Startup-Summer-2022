@@ -28,12 +28,12 @@ const Repos: FunctionComponent<ReposProps> = ({
         Repositories ({userData.public_repos})
       </span>
       {repos.map((repo: RepoProps) => (
-        <Repo {...repo} />
+        <Repo key={repo.name} {...repo} />
       ))}
-      <div className='paginations-wrap'>
-        <span className='page-info'>
-          {pageOffset * 4 + 1} - {(pageOffset + 1) * 4} of {userData.public_repos} items
-          
+      <div className="paginations-wrap">
+        <span className="page-info">
+          {pageOffset * 4 + 1} - {(pageOffset + 1) * 4} of{' '}
+          {userData.public_repos} items
         </span>
         <ReactPaginate
           previousLabel="<"

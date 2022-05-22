@@ -1,6 +1,6 @@
 .App-header {
     background-color: #0064EB;
-    height: 72px;;
+    height: 72px;
     display: flex;
     padding-left: 40px;
     align-items: center;
@@ -10,5 +10,6 @@
   @media (max-width: 768px)  {
     .App-header {
       padding-left: 20px;
+      height: 54px;
     }
   }

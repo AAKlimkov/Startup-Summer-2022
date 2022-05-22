@@ -9,5 +9,7 @@
 @media (max-width: 768px)  {
     .input{
         width: 200px; 
+        height: 30px;
+
     }
 }
