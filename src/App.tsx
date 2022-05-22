@@ -8,10 +8,10 @@ import Pages from './components/pages/Pages';
 import { RepoProps } from './components/pages/repo/Repo';
 import { IUser } from './components/pages/user/user';
 
-interface IError {
-  message: string;
-  documentation_url: string;
-}
+// interface IError {
+//   message: string;
+//   documentation_url: string;
+// }
 
 interface AppProps {}
 
