@@ -1,8 +1,8 @@
 import { FunctionComponent, useEffect, useState } from 'react';
-import ReactPaginate from 'react-paginate'
-import { useDispatch, useSelector } from 'react-redux';
-import { getRepos } from '../../actions/repos';
-import { IRepItem } from '../../reducers/reposReduser';
+// import ReactPaginate from 'react-paginate'
+// import { useDispatch, useSelector } from 'react-redux';
+// import { getRepos } from '../../actions/repos';
+// import { IRepItem } from '../../reducers/reposReduser';
 import Repo, { RepoProps } from './repo/Repo';
 import User, { IUser } from './user/user';
 import './pages.css';
@@ -27,7 +27,7 @@ const Pages: FunctionComponent<PagesProps> = ({
     html_url: 'string',
     avatar_url: 'string'
   });
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
 
   useEffect(() => {
@@ -40,7 +40,7 @@ const Pages: FunctionComponent<PagesProps> = ({
       }
     }
     getData();
-  }, [onSubmitHand, repos, value]);
+  }, [onSubmitHand, repos, value, onGetUser]);
 
   return (
     <div className="pages">

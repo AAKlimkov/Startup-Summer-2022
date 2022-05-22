@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useState } from 'react';
 // import { useDispatch } from 'react-redux';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+// import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header/Header';
 import InitialState from './components/InittialState/InitialState';
@@ -17,7 +17,7 @@ interface AppProps {}
 
 const App: FunctionComponent<AppProps> = () => {
   // const dispatch = useDispatch();
-  const [data, setData] = useState('');
+  // const [data, setData] = useState('');
   const [value, setValue] = useState('');
 
   const onGetRepos = async (value: string) => {
