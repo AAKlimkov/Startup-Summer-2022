@@ -1,4 +1,5 @@
 import React, { FunctionComponent, useState } from 'react';
+import './input.css'
 
 interface InputProps {
   getValue: (value: string) => void;

@@ -1,5 +1,36 @@
-.avatar{
-    width: 280px;
-    height: 280px;
-    border-radius: 50%;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+.avatar {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+}
+
+.user {
+  padding-left: 40px;
+  padding-top: 40px;
+  flex-grow: 4;
+}
+.name {
+  font-family: 'Inter';
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 130%;
+}
+.user-link {
+  text-decoration: none;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+}
+.follow {
+  display: flex;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.following, .followers {
+    height: 120px;
+    vertical-align: middle;
+    text-align: center;
 }

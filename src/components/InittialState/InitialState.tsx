@@ -1,16 +1,19 @@
 import { FunctionComponent } from 'react';
-import searchLogo from '../../assets/svg/search.svg';
-import './initialState.css'
+// import searchLogo from '../../assets/svg/search.svg';
+import './initialState.css';
 
-interface InitialProps {}
+interface InitialProps {
+  span: string;
+  logo: string;
+}
 
-const Initial: FunctionComponent<InitialProps> = () => {
+const Initial: FunctionComponent<InitialProps> = (props) => {
+  console.log(props.logo);
+  
   return (
-    <div>
-      <div className='initial'>
-        <img src={searchLogo} alt="searchLogo" />
-        <span>Start with searching a GitHub user</span>
-      </div>
+    <div className="initial">
+      <img src={props.logo} alt="searchLogo" />
+      <span>{props.span}</span>
     </div>
   );
 };

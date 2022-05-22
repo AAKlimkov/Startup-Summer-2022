@@ -2,9 +2,8 @@
     background-color: #0064EB;
     height: 72px;;
     display: flex;
-    flex-direction: column;
+    padding-left: 40px;
     align-items: center;
-    justify-content: center;
     color: white;
   }
   

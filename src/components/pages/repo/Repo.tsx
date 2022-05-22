@@ -1,4 +1,5 @@
 import { FunctionComponent } from 'react';
+import './repo.css'
 
 export interface RepoProps {
   name: string;
@@ -14,7 +15,7 @@ const Repo: FunctionComponent<RepoProps> = (props) => {
   return (
     <div className="repo">
       <div className="repo-header">
-      <a href={html_url} className="repo-link">
+      <a href={html_url} className="repo-link" target="_blank" rel='noreferrer'>
         {name}
       </a>
       <div className="repo-description">{description}</div>

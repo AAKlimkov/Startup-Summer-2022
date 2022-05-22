@@ -6,6 +6,10 @@ import { FunctionComponent, useEffect, useState } from 'react';
 import Repo, { RepoProps } from './repo/Repo';
 import User, { IUser } from './user/user';
 import './pages.css';
+import InitialState from '../InittialState/InitialState';
+import repoLogo from '../../assets/svg/noRepos.svg';
+
+// import { IError } from '../../App';
 
 interface PagesProps {
   onSubmitHand: (value: string) => Promise<RepoProps[]>;
@@ -20,15 +24,15 @@ const Pages: FunctionComponent<PagesProps> = ({
 }) => {
   const [repos, setRepos] = useState<RepoProps[]>([]);
   const [userData, setuserData] = useState<IUser>({
-    name: 'string',
-    login: 'string',
-    followers: 'string',
-    following: 'string',
-    html_url: 'string',
-    avatar_url: 'string'
+    name: '',
+    login: '',
+    followers: '',
+    following: '',
+    html_url: '',
+    avatar_url: '',
+    public_repos: '',
   });
   // const dispatch = useDispatch();
-
 
   useEffect(() => {
     async function getData() {
@@ -45,11 +49,14 @@ const Pages: FunctionComponent<PagesProps> = ({
   return (
     <div className="pages">
       <User {...userData} />
-      <div>
-        {repos.map((repo: RepoProps) => (
-          <Repo {...repo} />
-        ))}
-      </div>
+      {userData.public_repos ? (
+        <div className="repos">
+          Repositories ({userData.public_repos})
+          {repos.map((repo: RepoProps) => (
+            <Repo {...repo} />
+          ))}
+        </div>
+      ) : <InitialState span = 'Repository list is empty' logo = {repoLogo}/>}
     </div>
   );
 };

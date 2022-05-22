@@ -1,6 +1,7 @@
 import { FunctionComponent } from 'react';
 import logo from '../../assets/svg/github.svg';
 import Input from '../Input/Input';
+import './header.css'
 
 interface HeaderProps {
   getValue: (value: string) => void
