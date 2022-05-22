@@ -50,6 +50,7 @@ const Pages: FunctionComponent<PagesProps> = ({
       }
     }
     getData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value, pageNum]);
 
   return (
