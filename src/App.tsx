@@ -1,6 +1,4 @@
 import React, { FunctionComponent, useState } from 'react';
-// import { useDispatch } from 'react-redux';
-// import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header/Header';
 import InitialState from './components/InittialState/InitialState';
@@ -17,8 +15,6 @@ export interface IError {
 interface AppProps {}
 
 const App: FunctionComponent<AppProps> = () => {
-  // const dispatch = useDispatch();
-  // const [data, setData] = useState('');
   const [value, setValue] = useState('');
   const [pageNumber, setPageNumber] = useState('1');
 
@@ -44,11 +40,6 @@ const App: FunctionComponent<AppProps> = () => {
   const getPageNumber = (pageNumber: string) => {
     setPageNumber(pageNumber);
   };
-  // console.log(value);
-
-  // const count = useSelector<{ repos: IRepItem }, number>((state) => {
-  //   return state.repos.count;
-  // });
 
   return (
     <div className="App">

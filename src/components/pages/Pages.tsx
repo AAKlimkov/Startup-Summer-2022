@@ -1,16 +1,10 @@
 import { FunctionComponent, useEffect, useState } from 'react';
-// import ReactPaginate from 'react-paginate'
-// import { useDispatch, useSelector } from 'react-redux';
-// import { getRepos } from '../../actions/repos';
-// import { IRepItem } from '../../reducers/reposReduser';
 import { RepoProps } from './repo/Repo';
 import User, { IUser } from './user/user';
 import './pages.css';
 import InitialState from '../InittialState/InitialState';
 import noUser from '../../assets/svg/noUser.svg';
 import Repos from './repos/Repos';
-
-// import { IError } from '../../App';
 
 interface PagesProps {
   onSubmitHand: (value: string, pageNumber: string) => Promise<RepoProps[]>;
@@ -37,8 +31,6 @@ const Pages: FunctionComponent<PagesProps> = ({
     avatar_url: '',
     public_repos: '',
   });
-
-  // const dispatch = useDispatch();
 
   useEffect(() => {
     async function getData() {
