@@ -22,6 +22,7 @@ const Pages: FunctionComponent<PagesProps> = ({
   getPageNumber,
 }) => {
   const [repos, setRepos] = useState<RepoProps[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [userData, setuserData] = useState<IUser>({
     name: '',
     login: '',
@@ -35,19 +36,25 @@ const Pages: FunctionComponent<PagesProps> = ({
   useEffect(() => {
     async function getData() {
       if (value) {
+        setIsLoading(true);
         const repos = await onSubmitHand(value, pageNum);
         const userData = await onGetUser(value);
+        setIsLoading(false);
         setRepos(repos);
         setuserData(userData);
       }
     }
+
     getData();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value, pageNum]);
 
   return (
     <div className="pages">
-      {userData.name ? (
+      {isLoading ? (
+        <div className="loader"></div>
+      ) : userData.name ? (
         <User {...userData} />
       ) : (
         <InitialState span="User not found" logo={noUser} />

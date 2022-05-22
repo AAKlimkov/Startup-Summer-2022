@@ -28,10 +28,9 @@ const App: FunctionComponent<AppProps> = () => {
     const url = `https://api.github.com/users/${value}`;
     const res = await fetch(url);
     let data: IUser = await res.json();
+
     return data;
   };
-
-
 
   const getValue = (value: string) => {
     setValue(value);
@@ -44,7 +43,6 @@ const App: FunctionComponent<AppProps> = () => {
   return (
     <div className="App">
       <Header getValue={getValue} />
-
       {value ? (
         <Pages
           onSubmitHand={onGetRepos}
