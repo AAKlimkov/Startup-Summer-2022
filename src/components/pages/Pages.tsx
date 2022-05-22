@@ -7,7 +7,8 @@ import Repo, { RepoProps } from './repo/Repo';
 import User, { IUser } from './user/user';
 import './pages.css';
 import InitialState from '../InittialState/InitialState';
-import repoLogo from '../../assets/svg/noRepos.svg';
+import noRepos from '../../assets/svg/noRepos.svg';
+import noUser from '../../assets/svg/noUser.svg';
 
 // import { IError } from '../../App';
 
@@ -44,19 +45,28 @@ const Pages: FunctionComponent<PagesProps> = ({
       }
     }
     getData();
-  }, [onSubmitHand, repos, value, onGetUser]);
+  }, [value]);
 
   return (
     <div className="pages">
-      <User {...userData} />
-      {userData.public_repos ? (
-        <div className="repos">
-          Repositories ({userData.public_repos})
-          {repos.map((repo: RepoProps) => (
-            <Repo {...repo} />
-          ))}
-        </div>
-      ) : <InitialState span = 'Repository list is empty' logo = {repoLogo}/>}
+      {userData.name ? (
+        <User {...userData} />
+      ) : (
+        <InitialState span="User not found" logo={noUser} />
+      )}
+
+      {userData.name ? (
+        userData.public_repos ? (
+          <div className="repos">
+            Repositories ({userData.public_repos})
+            {repos.map((repo: RepoProps) => (
+              <Repo {...repo} />
+            ))}
+          </div>
+        ) : (
+          <InitialState span="Repository list is empty" logo={noRepos} />
+        )
+      ) : null}
     </div>
   );
 };

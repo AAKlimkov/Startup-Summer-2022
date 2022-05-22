@@ -25,7 +25,6 @@ const App: FunctionComponent<AppProps> = () => {
     const url = `https://api.github.com/users/${value}/repos?per_page=10`;
     const res = await fetch(url);
     let data: RepoProps[] = await res.json();
-
     return data;
   };
   const onGetUser = async (value: string) => {
@@ -37,7 +36,6 @@ const App: FunctionComponent<AppProps> = () => {
 
   const getValue = (value: string) => {
     setValue(value);
-    console.log(value);
   };
   // console.log(value);
 
